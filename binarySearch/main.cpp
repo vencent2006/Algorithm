@@ -12,7 +12,8 @@ template <typename T>
 int binarySearch(T arr[], int n, T target){
     int l = 0, r = n - 1;//在[l,r]区间内查找target
     while(l <= r){//因为依然复合[l,r]区间的定义
-       int mid = (l + r)/2;
+//       int mid = (l + r)/2;
+       int mid = l + (r - l)/2;//避免整形溢出
        if (arr[mid] == target){
            return mid;
        }else if (arr[mid] > target){//target < mid
@@ -33,7 +34,7 @@ int main(){
     for(int i = 0; i < n; i++){
         assert(i == binarySearch(data, n, i));
     }
-    clock_t endTime = clock();`
+    clock_t endTime = clock();
 
     cout<<"binarySearch Test Completed."<<endl;
     cout<<"Exec "<<n<<" times"<<endl;
