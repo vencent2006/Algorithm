@@ -32,6 +32,20 @@ public:
         }
 
     }
+    void moveZeroesWithoutAssignZeroWithSwap(vector <int> & nums){
+        int k = 0;//[0,k)是非零元素
+        for(int i = 0; i < nums.size(); i++){
+            if (nums[i]){
+                //非零
+                if(k != i){
+                    swap(nums[k], nums[i]);
+                }
+
+                k++;
+            }
+        }
+
+    }
 };
 
 void display(vector<int> & vec){
@@ -46,7 +60,7 @@ int main() {
     int arr[] = {0,1,2,0,3,4,5,6,7,8};
     vector <int> vec(arr, arr+ sizeof(arr)/sizeof(int));
 //    Solution().moveZeroes(vec);
-    Solution().moveZeroesWithoutAssignZero(vec);
+    Solution().moveZeroesWithoutAssignZeroWithSwap(vec);
 
     //显示
     display(vec);
