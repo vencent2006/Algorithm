@@ -15,10 +15,10 @@ int binarySearch(T arr[], int n, T target){
        int mid = (l + r)/2;
        if (arr[mid] == target){
            return mid;
-       }else if (arr[mid] > target){
-           r = mid - 1;
-       }else{
-           l = mid + 1;
+       }else if (arr[mid] > target){//target < mid
+           r = mid - 1;//target在[l,mid-1]中
+       }else{//target > mid
+           l = mid + 1;//target在[mid+1,r]中
        }
     }
 
